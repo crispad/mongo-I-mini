@@ -1,9 +1,18 @@
 const mongoose = require('mongoose');
 
 const bearSchema = new mongoose.Schema({
-    species: String,
-    latinName: String,
-    createdOn: Date,
+    species: { 
+        type: String,
+        required: true,
+    },
+    latinName: {
+        type: String,
+        required: true,
+    },
+    createdOn: {
+        type: Date,
+        default: Date.now,
+    },
 });
 
 const bearModel = mongoose.model('Bear', bearSchema); // bears collection
